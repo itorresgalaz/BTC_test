@@ -43,4 +43,4 @@ function saveBtc(currency, rates) {
 }
 
 getBtc();
-setInterval(() => {getBtc()}, 30000);
+setInterval(() => {getBtc()}, 10000);

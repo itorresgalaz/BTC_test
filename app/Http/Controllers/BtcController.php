@@ -16,7 +16,7 @@ class BtcController extends Controller
     {
         $btc = Btc::all();
         // $btcAnterio = 
-        return view('welcome', ['btc'=> $btc]);
+        return view('historial', ['btc'=> $btc]);
     }
 
     /**

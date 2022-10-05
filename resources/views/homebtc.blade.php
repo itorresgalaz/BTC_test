@@ -16,7 +16,7 @@
 
     </head>
     <body>
-      <div class="container text-center">
+      <div class="container ">
         <nav class="navbar navbar-expand-md bg-light">
           <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">Home</a><i class="fa-light fa-house"></i>
@@ -32,27 +32,21 @@
             </div>
           </div>
         </nav>
-        <div>
-
 
           <div class="row">
             <div class="col-sm-6">
               <div class="card">
                 <div id="currency" class="card-body">
-
-                  
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card">
                 <div id="rates" class="card-body">
-
                 </div>
               </div>
             </div>
           </div>
-      
 
           {{-- <script>
             let txt = document.getElementById("currency")

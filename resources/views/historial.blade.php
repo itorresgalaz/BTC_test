@@ -13,26 +13,26 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-
+        <div class="container text-center">
+          <nav class="navbar navbar-expand-md bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{{url('/')}}">Home</a><i class="fa-light fa-house"></i>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('/btc')}}">Historial</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div>
     </head>
     <body>
-      <div class="container text-center">
-        <nav class="navbar navbar-expand-md bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">Home</a><i class="fa-light fa-house"></i>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/btc')}}">Historial</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div>
+
 
         {{-- TABLE --}}
         <table class="table">
@@ -40,7 +40,7 @@
               <tr>
                 <th scope="col">FECHA</th>
                 <th scope="col">MONEDA</th>
-                <th scope="col">VALOR EN USD</th>
+                <th scope="col">VALOR EN USD $</th>
                 <th scope="col">% VARIACION</th>
               </tr>
             </thead>
@@ -53,22 +53,22 @@
                         <td>{{round($valor->rates,2)}}</td>
                         {{-- <td>{{($btc[$item]['rates'] - $btc[$item]['rates']) / $btc[2]['rates'] * 100}}</td> --}}
                         @if ($item == 0)
-                        <td>{{($btc[$item]['rates'] - $btc[$item]['rates']) / $btc[2]['rates'] * 100}}</td>
+                        <td>{{($btc[$item]['rates'] - $btc[$item]['rates']) / $btc[$item]['rates'] * 100}}</td>
                         {{-- <td>{{ $item }} -  {{$valor['rates']}} </td> --}}
                         @endif
                         @if ($item != 0) 
-                            @if (round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2) > 0)
+                            @if (round(( $btc[$item]['rates'] - $btc[$item-1]['rates'] ) / $btc[$item]['rates'] * 100,2) > 0)
                                 <td class="table-success">
-                                    {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                    {{round(( $btc[$item]['rates'] - $btc[$item-1]['rates'] ) / $btc[$item]['rates'] * 100,2)}} %
                                 </td>
                             @else
-                                @if (round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2) < 0)
+                                @if (round(( $btc[$item]['rates'] - $btc[$item-1]['rates'] ) / $btc[$item]['rates'] * 100,2) < 0)
                                     <td class="table-danger">
-                                        {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                        {{round(( $btc[$item]['rates'] - $btc[$item-1]['rates'] ) / $btc[$item]['rates'] * 100,2)}} %
                                     </td> 
                                 @else
                                     <td class="table-primary">
-                                        {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                        {{round(( $btc[$item]['rates'] - $btc[$item-1]['rates'] ) / $btc[$item]['rates'] * 100,2)}}
                                     </td> 
                                 @endif
                             @endif
