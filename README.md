@@ -7,14 +7,21 @@
 # 1. Con Laravel Sail 
 1. Clonar el repositorio https://github.com/itorresgalaz/BTC_test.git
 2. Configurar las variables de entorno .env :
-Esta variable es opcional, puesto que yo tenia ocupado el puerto 80, use otro.
+Esta variable es opcional, puesto que yo tenia ocupado el puerto 80, 
+use otro.
+
 APP_POST = 8080
 # Variables de la base de datos creada por sail
 DB_CONNECTION=pgsql
+
 DB_HOST=pgsql
+
 DB_PORT=5432
+
 DB_DATABASE=btc
+
 DB_USERNAME=sail
+
 DB_PASSWORD=password
 
 3. Ejecutar comando: composer install
@@ -47,5 +54,7 @@ ver el valor del Bitcoin en USD, y una vista para ver el historial del comportam
 # Desarrollado con:
 1. Laravel 9
 2. Javascript
-3. Bootstrap
-4. Docker
+3. Axios
+4. Bootstrap
+5. Docker
+6. Uso de API de COINBASE https://api.coinbase.com/v2/exchange-rates
