@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>BTC</title>
         <!-- <script src="{{ asset('js/app.js') }}" defer></script>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Historial</a>
+                  <a class="nav-link" href="{{url('/btc')}}">Historial</a>
                 </li>
               </ul>
             </div>

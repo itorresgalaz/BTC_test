@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BtcController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homebtc');
 });
+
+Route::resource('btc', BtcController::class);

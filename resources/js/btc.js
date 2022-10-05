@@ -1,3 +1,5 @@
+
+
 function getBtc() { // Funcion GET de la llamada a la API
     const url = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
         axios.get(url)        
@@ -17,7 +19,7 @@ function getBtc() { // Funcion GET de la llamada a la API
                 useGrouping: true,
             })
             rate.innerHTML = "<h1>" + formatoDolar.format(datos['rates']['USD'],)+ "</h1>"
-
+            saveBtc(datos['currency'],datos['rates']['USD']);
             //console.log(datos['currency']);
             //console.warn(datos['rates']['USD'] );
         })
@@ -25,5 +27,20 @@ function getBtc() { // Funcion GET de la llamada a la API
             console.log(error);
         });
 }
+
+function saveBtc(currency, rates) {
+    var laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    axios.post('/btc',{
+        currency: currency,
+        rates: rates,
+    })
+    .then(function (response) {
+        console.log(response)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
 getBtc();
-setInterval(() => {getBtc()}, 3000);
+setInterval(() => {getBtc()}, 10000);
