@@ -42,39 +42,41 @@
                 <th scope="col">MONEDA</th>
                 <th scope="col">VALOR EN USD</th>
                 <th scope="col">% VARIACION</th>
-                <th>ANTERIOR</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($btc as $item => $valor )
-                    @if ($loop->first)
-                        <tr>
-                            <th scope="row">{{$valor->created_at}}</th>
-                            <td>{{$valor->currency}}</td>
-                            <td>{{$valor->rates}}</td>
-                            <td> 0 %</td>
-                        </tr>   
-                    @endif
+                    
                     <tr>
                         <th scope="row">{{$valor->created_at}}</th>
                         <td>{{$valor->currency}}</td>
-                        <td>{{$valor->rates}}</td>
+                        <td>{{round($valor->rates,2)}}</td>
                         {{-- <td>{{($btc[$item]['rates'] - $btc[$item]['rates']) / $btc[2]['rates'] * 100}}</td> --}}
-                        <td>{{$btc[0]}}</td>
-
-                        {{-- <td>{{$btc[$loop->index]['rates']}}</td> --}}
-                        {{-- <td>{{$btc[($loop->iteration)]['rates']}}</td> --}}
-                    </tr>   
-                {{-- <tr>
-                    <td>{{ $item }} </td>
-
-                    <td>{{$valor['rates']}}</td>
-                    <td>{{$item[$item - 1]}}</td>
-                    <tr>{{$item['currency']}} => {{$valor}}</tr>
-
-                  </tr> --}}
+                        @if ($item == 0)
+                        <td>{{($btc[$item]['rates'] - $btc[$item]['rates']) / $btc[2]['rates'] * 100}}</td>
+                        {{-- <td>{{ $item }} -  {{$valor['rates']}} </td> --}}
+                        @endif
+                        @if ($item != 0) 
+                            @if (round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2) > 0)
+                                <td class="table-success">
+                                    {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                </td>
+                            @else
+                                @if (round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2) < 0)
+                                    <td class="table-danger">
+                                        {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                    </td> 
+                                @else
+                                    <td class="table-primary">
+                                        {{round(($btc[$item-1]['rates'] - $btc[$item]['rates']) / $btc[$item-1]['rates'] * 100,2)}}
+                                    </td> 
+                                @endif
+                            @endif
+                        {{-- <td>{{ $item }} -  {{$valor['rates']}} </td> --}}
+                        @endif
+                        {{-- <td>{{$btc[$item]['rates']}} / {{$btc[($loop->iteration-1)]['rates']}}</td> --}}   
+                    </tr>  
                 @endforeach
-
             </tbody>
           </table>
     </body>
