@@ -16,27 +16,51 @@
 
     </head>
     <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Vite!</h1>
-      <button class="btn btn-primary" >Primary button</button>
-    </div>
+      <div class="container text-center">
+        <nav class="navbar navbar-expand-md bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{{url('/')}}">Home</a><i class="fa-light fa-house"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Historial</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div>
 
-    {{-- <script>
-      function getBtc() { // Funcion GET de la llamada a la API
-          const url = 'https://api.coinbase.com/v2/exchange-rates?currency=BTC'
-            axios.get(url)
-            .then(function(response){
-                //console.log(response)
-                //console.log(response.data.data)
-                currency = response.data.data
-                console.log(currency['currency']);
-                console.warn(currency['rates']['USD']);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        }
-        setInterval(() => {getBtc()}, 10000);
-    </script> --}}
-  </body>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div id="currency" class="card-body">
+
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div id="rates" class="card-body">
+
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+          {{-- <script>
+            let txt = document.getElementById("currency")
+            console.error(txt.innerHTML);
+
+            txt = currency['currency']
+            console.warn(txt);
+
+          </script> --}}
+    </body>
 </html>
