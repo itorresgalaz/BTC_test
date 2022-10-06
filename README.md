@@ -53,7 +53,7 @@ ver el valor del Bitcoin en USD, y una vista para ver el historial del comportam
 
 # Desarrollado con:
 1. Laravel 9
-2. Javascript
+2. Javascript (/resources/js/btc.js)
 3. Axios
 4. Bootstrap
 5. Docker
