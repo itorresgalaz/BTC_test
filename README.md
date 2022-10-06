@@ -5,7 +5,7 @@
 2. Servidor Local 
 
 # 1. Con Laravel Sail 
-1. Clonar el repositorio https://github.com/itorresgalaz/BTC_test.git
+1. Clonar el repositorio git clone https://github.com/itorresgalaz/BTC_test.git
 2. Configurar las variables de entorno .env :
 Esta variable es opcional, puesto que yo tenia ocupado el puerto 80, 
 use otro.
